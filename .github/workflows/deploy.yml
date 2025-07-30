@@ -7,6 +7,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
@@ -14,7 +16,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Cache Bun dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.bun/install/cache
