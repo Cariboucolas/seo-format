@@ -14,7 +14,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Cache Bun dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.bun/install/cache
