@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link'; // Import du Link de MUI
-import { Link as RouterLink } from 'react-router-dom'; // Renommé pour éviter les conflits
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import FormatterPage from './pages/FormatterPage';
