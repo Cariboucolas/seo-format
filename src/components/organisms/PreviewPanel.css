@@ -1,0 +1,33 @@
+.preview-panel {
+    /* Fond gris pour faire ressortir les pages blanches */
+    background-color: #525659;
+    padding: 48px;
+    overflow-y: auto; /* Le scroll se fait ici, pas sur la page entière */
+}
+
+.a4-page {
+    background-color: white;
+    /* Couleur de texte pour le contenu sur la page */
+    color: black;
+
+    /* Dimensions du format A4. On utilise des pixels pour un rendu
+       cohérent à l'écran. 1cm ≈ 37.8px */
+    width: 21cm;
+    min-height: 29.7cm; /* min-height permet à la page de s'agrandir si besoin */
+
+    /* Marges intérieures de la page */
+    padding: 2.54cm;
+
+    /* Ombre pour donner un effet de feuille de papier */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 0 auto 24px auto; /* Centre la page et ajoute un espace en bas */
+
+    /* Assure que le padding ne s'ajoute pas à la largeur/hauteur */
+    box-sizing: border-box;
+}
+
+/* Styles de base pour le contenu de la prévisualisation */
+.a4-page h1, .a4-page p {
+    font-family: 'Times New Roman', serif; /* Police type document */
+    text-align: justify;
+}
