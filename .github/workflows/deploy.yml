@@ -27,9 +27,9 @@ jobs:
         run: bun install
 
       - name: Build project
-        run: bun run build --base=/seo-format/pr-preview/${{ github.event.number }}/
+        run: bun run build --base=/pr-preview/${{ github.event.number }}/
         env:
-          VITE_BASE_URL: /seo-format/pr-preview/${{ github.event.number }}/
+          VITE_BASE_URL: /pr-preview/${{ github.event.number }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
