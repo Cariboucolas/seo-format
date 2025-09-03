@@ -1,7 +1,7 @@
-name: Deploy PR Preview to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 permissions:
@@ -9,13 +9,13 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  build:
+  build-and-deploy:
+    name: Build and Deploy to Main URL
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,23 +26,14 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build project
-        run: bun run build --base=/pr-preview/
-        env:
-          VITE_BASE_URL: /pr-preview/
+      - name: Build project for production
+        run: bun run build --base=/seo-format/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
