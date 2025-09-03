@@ -1,11 +1,9 @@
-name: Deploy Main to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
-  # Se déclenche uniquement quand du code est poussé sur la branche main
   push:
     branches: [ main ]
 
-# Permissions nécessaires
 permissions:
   contents: read
   pages: write
