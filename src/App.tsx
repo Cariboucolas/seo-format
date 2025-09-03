@@ -8,7 +8,7 @@ import FormatterPage from './pages/FormatterPage';
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={import.meta.env.BASE_URL}>
 			<Box component="nav" sx={{ padding: 2, backgroundColor: 'background.paper' }}>
 				<Link component={RouterLink} to="/" sx={{ color: 'text.primary', marginRight: 2, textDecoration: 'none' }}>
 					Accueil
